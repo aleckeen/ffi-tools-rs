@@ -26,6 +26,14 @@ impl Configure {
             .arg(&format!("--prefix={}", path.as_ref().display()));
     }
 
+    pub fn with_pkg_prefix<S: AsRef<str>, P: AsRef<Path>>(&mut self, pkg: S, path: P) {
+        self.cmd.arg(&format!(
+            "--with-{}-prefix={}",
+            pkg.as_ref(),
+            path.as_ref().display()
+        ));
+    }
+
     pub fn enable(&mut self, feature: &str) {
         self.cmd.arg(&format!("--enable-{}", feature));
     }
