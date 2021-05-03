@@ -5,3 +5,6 @@ name = "ffi-tools"
 version = "0.1.0"
 edition = "2021"
 description = "A helper tool to build foreign libraries"
+
+[dependencies]
+num_cpus = "1"

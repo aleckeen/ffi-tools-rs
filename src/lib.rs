@@ -93,6 +93,7 @@ impl Project {
 
     pub fn make(&self) {
         let mut cmd = Command::new("make");
+        cmd.arg(&format!("-j{}", num_cpus::get()));
         cmd.current_dir(&self.src_dir);
         run_command(cmd, &format!("building {}", self.project_name));
     }
